@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="9.3">
+<file name="C:\Users\dante\Downloads\taller_tg\src\main\java\taller_tg\Main.java">
+</file>
+<file name="C:\Users\dante\Downloads\taller_tg\src\main\java\taller_tg\VacationCal.java">
+<error line="1" severity="error" message="Line does not match expected header line of &apos;// Copyright (C) 2023&apos;." source="com.puppycrawl.tools.checkstyle.checks.header.HeaderCheck"/>
+</file>
+</checkstyle>
