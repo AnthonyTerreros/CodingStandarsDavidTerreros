@@ -9,17 +9,44 @@ import taller_tg.VacationCal;
  * @author DavidTerreros
  */
 public class Main {
-	//CHECKSTYLE:OFF
-	static final int ERROR_INVALID_INPUT = -1;
-	static final int ERROR_BAD_INPUT = -2;
-	static final int ERROR_OVERFLOW_PERSONS = -3; 
-	// CHECKSTYLE:ON
+	
 	/**
-	 * @param args
-	 */
-	// CHECKSTYLE:OFF
+	*
+	*
+	* {@value} Email
+	*/
+	static final int ERROR_INVALID_INPUT = -1;
+	
+	/**
+	*
+	*
+	* {@value} Email
+	*/
+	static final int ERROR_BAD_INPUT = -2;
+	
+	/**
+	*
+	*
+	* {@value} Email
+	*/
+	static final int ERROR_OVERFLOW_PERSONS = -3; 
+	
+	/**
+	*
+	*
+	* @method Email
+	*/
+	private Main() {
+		// Avoid
+	}
+
+	/**
+	*
+	*
+	* @param args
+	*/
 	public static void main(final String[] args) {
-	// CHECKSTYLE:ON
+
 		try {
 			Scanner s = new Scanner(System.in);
 			System.out.print("Vacation Name: ");
@@ -42,11 +69,32 @@ public class Main {
 				System.out.println("Too much persons.");
 				return;
 			}
-			System.out.println("The total cost is: " + result);
+			showMenu();
+			System.out.print("Answer: ");
+			int choosed = s.nextInt();
+			result = vc.calculateChooseActivitiesPackage(choosed);
+			if (result == -2) {
+				System.out.println("Invalid Input");
+				return;
+			}
+			System.out.println("The total cost is: $" + result);
+			s.close();
 		} catch (Exception e) {
 			System.out.println("Occur a error in the system.");
 		}
 
+	}
+	
+	/**
+	*
+	*
+	* Show menu
+	*/
+	public static void showMenu() {
+		System.out.println("Select a Package: ");
+		System.out.println("1. All-Inclusive Package.");
+		System.out.println("2. Adventure Activities Package.");
+		System.out.println("3. Spa and Wellness Package.");
 	}
 
 }

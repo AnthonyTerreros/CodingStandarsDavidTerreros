@@ -1,32 +1,46 @@
 package taller_tg;
 
+/**
+*
+* Class Vacation Calculator
+**/
 public class VacationCal {
 	/**
-	 * Place for User Input
-	 */
+	*
+	*
+	* Place for User Input
+	*/
 	private String place;
 	/**
+	*
+	*
 	 * Place for User Input
 	 */
 	private int days;
 	/**
+	*
+	*
 	 * Place for User Input
 	 */
 	private int numTravelers;
 	/**
+	*
+	*
 	 * Price Base For Travel Package
 	 */
 	private double base_cost = 1000;
 
 	/**
-	 * 
+	*
+	*
 	 */
 	public VacationCal() {
 		super();
 	}
 
 	/**
-	 * 
+	*
+	*
 	 * @param place
 	 * @param days
 	 * @param numTravelers
@@ -39,6 +53,8 @@ public class VacationCal {
 	}
 
 	/**
+	*
+	*
 	 * @return destionation_place
 	 */
 	public String getPlace() {
@@ -46,6 +62,8 @@ public class VacationCal {
 	}
 
 	/**
+	*
+	*
 	 * @param place
 	 */
 	public void setPlace(String place) {
@@ -53,7 +71,8 @@ public class VacationCal {
 	}
 
 	/**
-	 * 
+	*
+	*
 	 * @return days
 	 */
 	public int getDays() {
@@ -61,7 +80,8 @@ public class VacationCal {
 	}
 
 	/**
-	 * 
+	*
+	*
 	 * @param days
 	 */
 	public void setDays(int days) {
@@ -69,6 +89,8 @@ public class VacationCal {
 	}
 
 	/**
+	*
+	*
 	 * @return numTravelers
 	 */
 	public int getNumbersoftravel() {
@@ -76,6 +98,8 @@ public class VacationCal {
 	}
 
 	/**
+	*
+	*
 	 * @param numTravelers
 	 */
 	public void setNumbersoftravel(int numTravelers) {
@@ -83,10 +107,12 @@ public class VacationCal {
 	}
 
 	/**
+	*
+	*
 	 * @return totalPrice
 	 */
 	public double getTotalPrice() {
-		if (this.numTravelers <= 0 || this.days <= 0 || this.place.equals("")) {
+		if (this.numTravelers <= 0 || this.days <= 0 || "".equals(this.place)) {
 			return -1;
 		}
 
@@ -94,9 +120,9 @@ public class VacationCal {
 			return -3;
 		}
 
-		if (this.place.equals("Paris")) {
+		if ("Paris".equals(this.place)) {
 			this.base_cost += 500;
-		} else if (this.place.equals("New York City")) {
+		} else if ("New York City".equals(this.place)) {
 			this.base_cost += 600;
 		} else {
 			return -2;
@@ -118,5 +144,27 @@ public class VacationCal {
 		}
 		return this.base_cost;
 	}
-
+	
+	/**
+	*
+	*
+	 * @param option
+	 * @return totalPrice
+	 */
+	public double calculateChooseActivitiesPackage(int option) {
+		if(option < 1 && option > 3) {
+			return -2;
+		}
+		if(option == 1) {
+			this.base_cost += this.numTravelers * 200;
+		}
+		if(option == 2) {
+			this.base_cost += this.numTravelers * 150;
+		}
+		if(option == 3) {
+			this.base_cost += this.numTravelers * 100;
+		}
+		return this.base_cost;
+	}
+	
 }
